@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+	<style>
+	
+	* {
+  margin-top: 0px;
+  box-sizing: border-box;
+  font-weight: normal;
+  padding: 0px;
+  color: #fff;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Lucida Console', Monaco, monospace;
+}
+nav#global {
+  position:fixed;
+  bottom:0px;
+  left:0px;
+  width:100%;
+  background-color:#2F4F4F;
+  z-index:1000;
+  padding:40px;
+}
+nav ul {
+  margin:0px;
+  padding:0px;
+  list-style-type:none;
+  overflow:auto;
+}
+nav li {
+  float:left;
+  margin-right:10px;
+}
+nav a {
+  color:white;
+  text-decoration:none;
+  background-color:#7A8B8B;
+  display:block;
+  padding:10px;
+  border-radius:5px;
+  text-transform:uppercase;
+}
+
+#wrapper {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  min-width: 1920px;
+  /*^ you have to double the height and width
+    it creates the four by four grid*/
+  padding: 0px;
+  margin: 0px;
+  top: 0px;
+  left: 0px;
+  z-index:100;
+  opacity:.5;
+}
+
+section {
+  width: 50%;
+  height: 50%;
+  position: relative;
+  float: left;
+  border: 1px solid #fff;
+  overflow: hidden;
+}
+section:nth-child(1) {
+  background-color: #668B8B;
+}
+section:nth-child(2) {
+  background-color: #528B8B;
+}
+section:nth-child(3) {
+  background-color: #79CDCD;
+}
+section:nth-child(4) {
+  background-color: #6996AD;
+}
+
+
+.c-zone {
+  width: 90%;
+  padding: 100px;
+  max-width: 1200px;
+  margin: 0px auto;
+  position: relative;
+  background-color: rgba(120, 100, 100, 0.1);
+}
+
+	
+	</style>
+</head>
+
+<body>
+	
+<nav id="global">
+  <ul>
+    <li><a href="#sec_01" data-menu-top="0p" >One</a></li>
+    <li><a href="#sec_02" data-menu-top="250p">Two</a></li>
+    <li><a href="#sec_03" data-menu-top="450p">Three</a></li>
+    <li><a href="#sec_04" data-menu-top="650p">Four</a></li>
+  </ul>
+  <!-- ^ the skrollr-menu requires the data-menu-top attributes to correlate with the animations below.
+         will not work without links to jQuery skrollr and skrollr-menu plugins! -->
+</nav>
+  <div id="wrapper" data-0="transform:translate(0%,0%);" data-100p="transform:translate(0%,0%);" data-200p="transform:translate(-50%,0%);" data-300p="transform:translate(-50%,0%);" data-400p="transform:translate(0%,-50%);" data-500p="transform:translate(0%,-50%);"
+  data-600p="transform:translate(-50%,-50%);" data-700p="transform:translate(-50%,-50%);">
+    <!-- ^ the wrapper animation creates the scroll effect
+         will not work without links to jQuery and skrollr plugin! -->
+
+    <section id="sec_01">
+      <div class="c-zone">
+        <h1 data-0p="opacity:1; margin-top:50px;" data-50p="opacity:0; margin-top:0px;">
+        one</h1>
+      </div>
+    </section>
+    <section id="sec_02">
+      <div class="c-zone">
+        <h1 data-200p="opacity:0; margin-top:50px;" data-250p="opacity:1; margin-top:0px;">
+        two</h1>
+      </div>
+    </section>
+    <section id="sec_03">
+      <div class="c-zone">
+        <h1 data-400p="opacity:0; margin-top:50px;" data-450p="opacity:1; margin-top:0px;">three</h1>
+      </div>
+    </section>
+    <section id="sec_04">
+      <div class="c-zone">
+        <h1 data-600p="opacity:0; margin-top:50px;" data-650p="opacity:1; margin-top:0px;">
+        four</h1>
+      </div>
+    </section>
+  </div>
+	
+	
+	<script>
+		
+		$(document).ready(function(){
+			var s = skrollr.init();
+			skrollr.menu.init(s);
+		})
+	
+	</script>
+	
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
